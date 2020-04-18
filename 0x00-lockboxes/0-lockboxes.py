@@ -5,10 +5,10 @@ def canUnlockAll(boxes):
 
     key = 0
     KeyC = [0]
-    if len(boxes) == 1:
+    if len(boxes) == 0:
         return(True)
-    for llave in KeyC:
-        for key in boxes[llave]:
+    for key in KeyC:
+        for key in boxes[key]:
             # print("estos es boxes key",boxes[llave])
             # print("estos es keys",key)
             if key in KeyC:
