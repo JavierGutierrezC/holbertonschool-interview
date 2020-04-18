@@ -12,7 +12,7 @@ def canUnlockAll(boxes):
             if key in KeyC:
                 # llavero.append(key)
                 # print(KeyC)
-                # continue
+                continue
             else:
                 KeyC.append(key)
                 # key = keys
