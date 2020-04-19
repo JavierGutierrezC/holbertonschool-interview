@@ -8,7 +8,7 @@ def canUnlockAll(boxes):
     if len(boxes) == 0:
         return(True)
     for key in KeyC:
-        for key in range(len(boxes[key])):
+        for key in boxes[key]:
             # print("estos es boxes key",boxes[llave])
             # print("estos es keys",key)
             if key in KeyC:
@@ -16,7 +16,10 @@ def canUnlockAll(boxes):
                 # print(KeyC)
                 continue
             else:
-                KeyC.append(key)
+                if key <= len(boxes) - 1:
+                    KeyC.append(key)
+                else:
+                    continue
                 # key = keys
                 # a = keys
                 # break
