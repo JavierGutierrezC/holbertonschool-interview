@@ -21,13 +21,13 @@ new->n = number;
 if (act == NULL || (act)->n >= new->n)
 {
 new->next = act;
-*head = new;
+act = new;
 return (new);
 }
 
 act = *head;
 
-while (act->next->n < new->n)
+while (act->next && act->next->n < new->n)
 {
 act = act->next;
 }
