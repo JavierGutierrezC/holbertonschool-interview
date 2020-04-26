@@ -20,12 +20,12 @@ new->n = number;
 
 if (act == NULL || (act)->n >= new->n)
 {
-new->next = act;
-act = new;
+new->next = *head;
+*head = new;
 return (new);
 }
 
-/*act = *head;*/
+act = *head;
 
 while (act->next && act->next->n < new->n)
 {
