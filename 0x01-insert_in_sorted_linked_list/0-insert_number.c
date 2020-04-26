@@ -25,7 +25,7 @@ act = new;
 return (new);
 }
 
-act = *head;
+/*act = *head;*/
 
 while (act->next && act->next->n < new->n)
 {
