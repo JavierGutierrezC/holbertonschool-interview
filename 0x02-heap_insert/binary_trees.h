@@ -19,10 +19,10 @@
 
 typedef struct binary_tree_s
 {
-int n;
-struct binary_tree_s *parent;
-struct binary_tree_s *left;
-struct binary_tree_s *right;
+  int n;
+  struct binary_tree_s *parent;
+  struct binary_tree_s *left;
+  struct binary_tree_s *right;
 } binary_tree_t;
 
 typedef struct binary_tree_s heap_t;
@@ -35,9 +35,11 @@ heap_t *heap_insert(heap_t **root, int value);
 void binary_tree_print(const binary_tree_t *);
 
 
-void plevel(const binary_tree_t *tree, void (*func)(int), int level);
-void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
-size_t binary_tree_height(const binary_tree_t *tree);
+int binary_tree_is_perfect(const binary_tree_t *tree);
+
+size_t height(const binary_tree_t *tree);
+size_t size(const binary_tree_t *tree);
+int power(int base, unsigned int exponent);
 
 
 #endif

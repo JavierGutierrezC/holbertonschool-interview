@@ -1,77 +1,88 @@
 #include "binary_trees.h"
 
-
 /**
-*heap_insert - function that insert in a binary heap
-*root: double pointer to the root node of the Heap
-*@value: is the value stored in the node to be inserted
-*Return: pointer to inserted node or NULL if fail
- **/
-heap_t *heap_insert(heap_t **root, int value)
-{
-  heap_t *newN = (heap_t *) malloc(sizeof(heap_t));
-  if (newN == NULL)
-    return NULL;
-
-  if (root == NULL || *root == NULL)
-    {
-      newN = binary_tree_node(*root, value);
-      *root = newN;
-      return (*root);
-    }
-
-}
-
-
-void plevel(const binary_tree_t *tree, void (*func)(int), int level);
-
-/**
- *binary_tree_levelorder - goes through a binary tree using lv-order traversal
- *@tree: pointer to the root node of the tree to traverse
- *@func: is a pointer to a function to call for each node
- **/
-void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int))
-{
-  int height = 0, level = 0;
-
-  if (!tree || !func)
-    return;
-  height = binary_tree_height(tree) + 1;
-  for (level = 1; level <= height; level++)
-    plevel(tree, func, level);
-}
-/**
- * plevel - print node, especific level
- * @tree: pointer to the root node of the tree to traverse
- * @func: pointer to a function to call for each node.
- * @level: level to print
+ * binary_tree_is_perfect - checks if a binary tree is perfect.
+ * @tree: pointer of the tree.
+ *
+ * Return: If the binary tree is perfect, the function will return 1. Else,
+ * the function will return 0.
  */
-void plevel(const binary_tree_t *tree, void (*func)(int), int level)
+int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-  binary_tree_t *nl = tree->left, *nr = tree->right;
+  size_t h, elem = 1, i;
 
-  if (level == 1)
-    func(tree->n);
-  else
-    plevel(nl, func, level - 1), plevel(nr, func, level - 1);
+  if (!tree)
+    return (0);
+  else if (!tree->left && !tree->right)
+    return (1);
+
+  h = height(tree);
+
+  for (i = 1; i <= h; i++)
+    elem += power(2, i);
+
+  return (size(tree) == elem ? 1 : 0);
 }
 
 /**
- *binary_tree_height - measures the height of a binary tree
- *@tree: pointer to root node of the tree measure the height
- *Return: if tree is NULL return 0
+ * height - measures the height of a binary tree
+ * @tree: pointer of the binary tree.
+ *
+ * Return: height of the binary tree.
  */
-size_t binary_tree_height(const binary_tree_t *tree)
+size_t height(const binary_tree_t *tree)
 {
-  size_t height1 = 0, height2 = 0;
+  size_t lh = 0, rh = 0;
 
-  if (!tree || (!tree->left && !tree->right))
+  if (!tree)
     return (0);
 
-  height1 = binary_tree_height(tree->left);
-  height2 = binary_tree_height(tree->right);
+  if (tree->left)
+    lh = height(tree->left) + 1;
+  if (tree->right)
+    rh = height(tree->right) + 1;
 
-  if (height1 < height2)
-    return (height2 + 1);
-  return (height1 + 1);
+  return (lh > rh ? lh : rh);
+}
+
+/**
+ * size - Returns the size of the binary tree.
+ * @tree: pointer to the tree.
+ *
+ * Return: size of the binary tree.
+ */
+size_t size(const binary_tree_t *tree)
+{
+  size_t s = 0;
+
+  if (!tree)
+    return (0);
+
+  s++;
+  if (tree->left)
+    s += size(tree->left);
+  if (tree->right)
+    s += size(tree->right);
+
+  return (s);
+}
+
+/**
+ * power - returns the exponential value of a number
+ * @base: base number
+ * @exponent: exponent number
+ * Return: result
+ */
+int power(int base, unsigned int exponent)
+{
+  int count, result;
+
+  if (exponent == 0)
+    return (1);
+  result = 1;
+  for (count = 0; count < (int)exponent; count++)
+    {
+      result *= base;
+    }
+  return (result);
 }
