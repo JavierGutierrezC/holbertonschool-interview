@@ -34,4 +34,10 @@ heap_t *heap_insert(heap_t **root, int value);
 
 void binary_tree_print(const binary_tree_t *);
 
+
+void plevel(const binary_tree_t *tree, void (*func)(int), int level);
+void binary_tree_levelorder(const binary_tree_t *tree, void (*func)(int));
+size_t binary_tree_height(const binary_tree_t *tree);
+
+
 #endif
