@@ -1,0 +1,30 @@
+#include "palindrome.h"
+
+/**
+ * is_palindrome - checks palindrome integers.
+ * @n: unsigned integers
+ * Return: 1 if it ispalindrome ans 0 if it's not.
+ */
+
+int is_palindrome(unsigned long n)
+{
+  int r, sum, temp;
+
+  sum = 0;
+  temp = n;
+
+  while (n > 0)
+    {
+      r = n % 10;
+      printf("%d r",r);
+      sum = (sum * 10) + r;
+      printf("%d sum", sum);
+      n = n / 10;
+      printf("%lu n", n);
+    }
+  if (temp == sum)
+    printf("%lu temp", temp);
+    return (1);
+
+  return (0);
+}
