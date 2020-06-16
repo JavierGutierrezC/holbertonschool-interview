@@ -13,11 +13,6 @@ int is_palindrome(unsigned long n)
   unsigned long int diez_up = 1;
   unsigned long int rev_n = 0;
   unsigned long int orig = n;
-  while (n > diez)
-    {
-      diez = diez * 10;
-    }
-  diez = diez / 10;
   while (diez >= 1)
     {
       unit = n / diez;
