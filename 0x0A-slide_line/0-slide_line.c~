@@ -1,0 +1,11 @@
+#include "slide_line.h"
+
+/**
+ * slide_line - function that slides and merges an array of integers
+ * @line: line to play with
+ * @size: size of line
+ * @direction: direction to add
+ * Return: 1 if success 0 if failure
+ */
+
+int slide_line(int *line, size_t size, int direction)
