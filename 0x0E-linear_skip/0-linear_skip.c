@@ -1,12 +1,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "search.h"
+
 size_t count(skiplist_t *list);
+
 /**
 * count - list length
 * @list: pointer of the head of the list
-* Return: pointer to the first node 
+* Return: pointer to the first node
 */
+
 size_t count(skiplist_t *list)
 {
 size_t n = 0;
@@ -17,12 +20,14 @@ list = list->next;
 }
 return (n);
 }
+
 /**
 * linear_skip - searches for a value in a sorted skip list of integers
 * @list: is a pointer to the head of the skip list to search in
 * @value:  is the value to search for
 * Return: a pointer on the first node where value is located
 */
+
 skiplist_t *linear_skip(skiplist_t *list, int value)
 {
 skiplist_t *temp = list;
