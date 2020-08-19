@@ -24,6 +24,6 @@ request('https://swapi-api.hbtn.io/api/films/' + process.argv[2], async function
       console.error(error);
     }
 
-    a = a + 1;
+    x = x + 1;
   }
 });
