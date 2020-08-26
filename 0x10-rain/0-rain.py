@@ -13,8 +13,6 @@ def rain(walls):
     right_v = [0] * len(walls)
     left_v[0] = walls[0]
     right_v[-1] = walls[-1]
-    
-
     for i in range(1, len(walls)):
         left_v[i] = max(left_v[i - 1], walls[i])
 
